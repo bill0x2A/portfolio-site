@@ -1,0 +1,19 @@
+.Background {
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 2;
+    height: 100%;
+    width : 100%;
+    display: flex;
+}
+
+.Left {
+    background: #fe615a;
+    width: 50%;
+    height: 100%;
+}
+
+.Right {
+    background: #eef3dc;
+    width: 50%;
+    height: 100%;
+}

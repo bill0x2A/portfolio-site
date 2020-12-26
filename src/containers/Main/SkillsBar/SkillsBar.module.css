@@ -1,0 +1,45 @@
+.ImageBar {
+    background: #102331;
+    border-radius: 8px;
+    width : 100%;
+    padding: 8px;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.ImageBar img {
+    height : 70px;
+    transition: all 500ms;
+}
+
+.ImageBar img:hover {
+    transform: scale(1.05)
+}
+
+.BoxOne {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.BoxTwo {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 786px){
+    .ImageBar img {
+        height : 50px;
+        transition: all 500ms;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .ImageBar img {
+        height : 40px;
+        transition: all 500ms;
+    }
+}
+

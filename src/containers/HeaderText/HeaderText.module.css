@@ -1,0 +1,38 @@
+.HeaderText {
+    color:  #fe615a;
+    grid-row: 1 / span 1;
+    grid-column: 3 / span 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Work Sans";
+    margin-left: 18px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 80px;
+    text-transform: capitalize;
+}
+
+h2 {
+    margin: 0;
+    font-size: 40px;
+    text-transform: capitalize;
+}
+
+
+@media only screen and (max-width : 786px){
+    h1 {
+        font-size: 60px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .HeaderText h1 {
+        display: none;
+    }
+}
+

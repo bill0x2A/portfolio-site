@@ -1,0 +1,105 @@
+.ImageContainer {
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 1;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    padding-top: 70px;
+}
+
+.ImageContainer img {
+    height: 350px;
+    width: auto;
+    z-index: 100;
+    position: absolute;
+    left: calc(50% - 126px);
+}
+
+.WhiteBlock {
+    background: #eef3dc;
+    width : 35px;
+    height: 350px;
+    
+    transition: all 500ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.58, 1.0);
+    position: absolute;
+    left: calc(50% - 24px);
+
+}
+
+.BlockOne {
+    transform: rotate(-50deg);
+}
+
+.BlockTwo {
+    transform: rotate(50deg);
+}
+
+.Plinth {
+    width: 350px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: #d2504a;
+
+    position: absolute;
+    left: calc(50% - 175px);
+    bottom: 14%;
+    box-shadow: -1px 8px 0px #c23e38;
+
+    transition: all 500ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.58, 1.0);
+}
+
+.PlinthHover {
+    bottom: 12%;
+    box-shadow: -1px 4px 0px #c23e38;
+}
+
+.BlockTwoHover {
+    transform: rotate(40deg);
+}
+
+.BlockOneHover {
+    transform: rotate(-40deg);
+}
+
+.Hi h1{
+    margin: 0;
+    font-size: 60px;
+    text-transform: capitalize;
+    color: #eef3dc;
+    white-space: nowrap;
+    text-align: left;
+    margin-left : 5px;
+    display: flex;
+    align-items: center;
+}
+
+
+@media only screen and (max-width : 786px){
+    .Plinth {
+        display: none;
+    }
+    .ImageContainer img {
+        display: none;
+    }
+    .WhiteBlock {
+        display: none;
+    }
+}
+
+@media only screen and (min-width : 786px){
+    .Hi {
+        display: none;
+    }
+}
+
+@media only screen and (max-width : 570px){
+    .Hi h1 {
+        white-space: normal;
+    }
+
+    .Hi {
+        margin-top: 10px;
+    }
+}

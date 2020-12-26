@@ -1,0 +1,26 @@
+.App {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 300px 1fr 1fr 300px;
+  grid-template-rows: 500px 1fr;
+}
+
+@media only screen and (max-width : 1377px){
+  .App {
+    grid-template-columns: 100px 1fr 1fr 100px;
+  }
+}
+
+@media only screen and (max-width : 950px){
+  .App {
+    grid-template-columns: 10px 1fr 1fr 10px;
+  }
+}
+
+@media only screen and (max-width : 786px){
+  .App {
+    grid-template-columns: 0px 1fr 1fr 0px;
+    grid-template-rows: 400px 1fr;
+  }
+}

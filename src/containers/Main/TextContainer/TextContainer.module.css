@@ -1,0 +1,18 @@
+.TextContainer {
+    background: #102331;
+    border-radius: 8px;
+    height: 1000px;
+    box-sizing: border-box;
+    margin-top: 18px;
+    padding: 25px;
+    color: white;
+    overflow: hidden;
+}
+
+p {
+    font-size: 20px;
+}
+
+.TextContainer h2 {
+    margin-top: 0;
+}
