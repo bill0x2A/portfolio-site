@@ -65,6 +65,10 @@
   transition: filter 300ms;
 }
 
+.Project li {
+  font-size : 18px;
+}
+
 .Project img {
   width: 100%;
 }

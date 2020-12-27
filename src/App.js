@@ -65,9 +65,11 @@ function App() {
                 </div>
                 <img src = {billfinex}/>
               </div>
+              <p>What began as a mockup of the main page of popular cryptocurrency exchange Bitfinex became - effectively an interactive trading game. Market data is generated, and the player can place buy and sell orders on multiple coins as they attempt to make fake fortunes.</p>
+              <p>I used this project as a way to become comfortable with the <strong>React framework</strong>, and my abilty to quickly conceptualise and implement React components improved significantly over the course of creating the app.</p>
             </div>
             <div className={classes.Project}>
-              <h3>Bugtracker App</h3>
+              <h3>React + Firebase Bugtracker</h3>
               <div className={classes.Main}>
                 <div className={classes.Technologies}>
                   <img src ={HTML}/>
@@ -78,6 +80,16 @@ function App() {
                 </div>
                 <img src = {bugtracker}/>
               </div>
+              <p>While Billfinex more resembles a toy, this project more closely tried to emulate something that may have some real world use.</p>
+              <p>The application features:</p>
+              <ul>
+                <li>Accounts</li>
+                <li>A friend system</li>
+                <li>The ability to create, invite friends to and administrate your projects</li>
+                <li>Add bugs to a project, manage their urgency and mark them as resolved</li>
+                <li>Comment on other users bugs to try and find a solution</li>
+              </ul>
+              <p>I learned a lot about integrating APIs into my applications while working on this project, as well as becoming comfortable with <strong>routing</strong> in React and <strong>user authentication</strong>.</p>
             </div>
           </div>
         </TextContainer>
