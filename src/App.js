@@ -44,9 +44,12 @@ function App() {
                 </div>
                 <img src = {biographicalcounselling}/>
               </div>
+              <p>I approached Jane about her website in May 2020. I worked with her over several months to create a design she loved.</p>
+              <p>I substantially developed my confidence and knowledge in <strong>CSS</strong> over the course of this project, and the end product is now live, representing her counselling service.</p>
+              <p>I also took the opportunity to learn how to run a containerized backend on <strong>AWS (EC2)</strong> to host the site for Jane, saving her <strong>£100 / year </strong>in hosting costs compared to her previous solution.</p>
             </div>
             <div className={classes.Project}>
-              <h3>Billfinex</h3>
+              <h3>Billfinex React App</h3>
               <div className={classes.Main}>
                 <div className={classes.Technologies}>
                   <img src ={HTML}/>
