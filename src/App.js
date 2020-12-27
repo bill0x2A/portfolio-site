@@ -68,7 +68,7 @@ function App() {
               <p>What began as a mockup of the main page of popular cryptocurrency exchange Bitfinex became - effectively an interactive trading game. Market data is generated, and the player can place buy and sell orders on multiple coins as they attempt to make fake fortunes.</p>
               <p>I used this project as a way to become comfortable with the <strong>React framework</strong>, and my abilty to quickly conceptualise and implement React components improved significantly over the course of creating the app.</p>
             </div>
-            <div className={classes.Project}>
+            <div className={classes.Project} onClick = {() => window.location.replace("https://master.d1l4h4map9o1uj.amplifyapp.com/")}>
               <h3>React + Firebase Bugtracker</h3>
               <div className={classes.Main}>
                 <div className={classes.Technologies}>
