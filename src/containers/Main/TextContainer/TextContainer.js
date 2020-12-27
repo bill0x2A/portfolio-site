@@ -15,8 +15,6 @@ familliar with Node and Express to facilitate thier needs.</p>
 <p>Wanting to build more than static websites I began learning React in
 July 2020 and since then I have built several show pieces to convince 
 you to give me a job! </p>
-<h2>My Projects</h2>
-<h3>[biographicalcounselling.net]</h3>
 {props.children}
     </div>
     )

@@ -24,3 +24,70 @@
     grid-template-rows: 400px 1fr;
   }
 }
+
+.Project {
+  width: 100%;
+}
+
+.Project h3 {
+  padding : 5px 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+  border : 4px solid white;
+  
+}
+
+.Project .Main {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.TextContainer {
+  margin-left : 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.TextContainer p {
+  font-style: italic;
+}
+
+.Main p {
+  margin-top: 0;
+}
+
+.Project a {
+  max-width: 900px;
+  width: 70%;
+  border-radius: 5px;
+  transition: filter 300ms;
+}
+
+.Project img {
+  width: 100%;
+}
+
+.Technologies {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  padding : 5px 10px;
+  background: rgba(0,0,0,0.7);
+  border-bottom-left-radius: 5px;
+}
+
+.Technologies img{
+  all : initial;
+  max-height: 45px;
+  margin-right : 20px;
+}
+
+.Project img:hover {
+  filter : contrast(110%);
+  cursor: pointer;
+}
