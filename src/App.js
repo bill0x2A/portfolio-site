@@ -1,5 +1,7 @@
 import React from 'react';
 import classes from './App.module.css';
+import Helmet from 'react-helmet';
+
 import Background from './containers/Background/Background';
 import Main from './containers/Main/Main';
 import HeaderText from './containers/HeaderText/HeaderText';
@@ -7,6 +9,7 @@ import ImageContainer from './containers/ImageContainer/ImageContainer';
 import SkillsBar from './containers/Main/SkillsBar/SkillsBar';
 import TextContainer from './containers/Main/TextContainer/TextContainer';
 import Project from './Components/Project/Project';
+
 
 import HTML from './Assets/html5.png';
 import CSS from './Assets/css3.png';
@@ -25,6 +28,9 @@ import bugtracker from './Assets/bugtracker.png';
 function App() {
   return (
     <div className={classes.App}>
+      <Helmet>
+        <title>Billy Smith Web Dev</title>
+      </Helmet>
       <HeaderText/>
       <ImageContainer/>
       <Main>
