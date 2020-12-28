@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './App.module.css';
 import Helmet from 'react-helmet';
+import { withRouter, Router } from 'react-router-dom';
 
 import Background from './containers/Background/Background';
 import Main from './containers/Main/Main';
@@ -11,6 +12,7 @@ import TextContainer from './containers/Main/TextContainer/TextContainer';
 import Project from './Components/Project/Project';
 
 
+
 import HTML from './Assets/html5.png';
 import CSS from './Assets/css3.png';
 import NODE from './Assets/node.png';
@@ -19,13 +21,15 @@ import PYTHON from './Assets/python.png';
 import REACT from './Assets/react.png';
 import FIREBASE from './Assets/firebase.png';
 import EC2 from './Assets/ec2.png';
+import GITHUB from './Assets/github.png';
+import LINKEDIN from './Assets/linkedin.png';
 
 
 import biographicalcounselling from './Assets/biographicalcounselling.png';
 import billfinex from './Assets/billfinex.png';
 import bugtracker from './Assets/bugtracker.png';
 
-function App() {
+function App(props) {
   return (
     <div className={classes.App}>
       <Helmet>
@@ -36,9 +40,13 @@ function App() {
       <Main>
         <SkillsBar/>
         <TextContainer>
+          <div className={classes.SocialContainer}>
+            <img src={GITHUB} onClick = {() => window.open("https://github.com/bill0x2A")}/>
+            <img src={LINKEDIN} onClick = {() => window.open("https://www.linkedin.com/in/billy-s-297b89ab/")}/>
+          </div>
           <div className = {classes.Projects}>
             <h2>My Projects</h2>
-            <div className={classes.Project}>
+            <div className={classes.Project} onClick = {() => window.open("https://www.biographicalcounselling.net/")}>
               <h3>biographicalcounselling.net</h3>
               <div className={classes.Main}>
                 <div className={classes.Technologies}>
@@ -54,7 +62,7 @@ function App() {
               <p>I substantially developed my confidence and knowledge in <strong>CSS</strong> over the course of this project, and the end product is now live, representing her counselling service.</p>
               <p>I also took the opportunity to learn how to run a containerized backend on <strong>AWS (EC2)</strong> to host the site for Jane, saving her <strong>£100 / year </strong>in hosting costs compared to her previous solution.</p>
             </div>
-            <div className={classes.Project}>
+            <div className={classes.Project} onClick = {() => window.open("https://main.d1og6uu514ow0q.amplifyapp.com/")}>
               <h3>Billfinex React App</h3>
               <div className={classes.Main}>
                 <div className={classes.Technologies}>
@@ -68,7 +76,7 @@ function App() {
               <p>What began as a mockup of the main page of popular cryptocurrency exchange Bitfinex became - effectively an interactive trading game. Market data is generated, and the player can place buy and sell orders on multiple coins as they attempt to make fake fortunes.</p>
               <p>I used this project as a way to become comfortable with the <strong>React framework</strong>, and my abilty to quickly conceptualise and implement React components improved significantly over the course of creating the app.</p>
             </div>
-            <div className={classes.Project} onClick = {() => window.location.replace("https://master.d1l4h4map9o1uj.amplifyapp.com/")}>
+            <div className={classes.Project} onClick = {() => window.open("https://master.d1l4h4map9o1uj.amplifyapp.com/")}>
               <h3>React + Firebase Bugtracker</h3>
               <div className={classes.Main}>
                 <div className={classes.Technologies}>
@@ -95,7 +103,8 @@ function App() {
         </TextContainer>
       </Main>
     </div>
+
   );
 }
 
-export default App;
+export default withRouter(App);

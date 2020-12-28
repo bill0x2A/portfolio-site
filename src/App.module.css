@@ -25,6 +25,23 @@
   }
 }
 
+.SocialContainer {
+  display: flex;
+  padding: 5px 10px;
+}
+
+.SocialContainer img {
+  height: 50px;
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: filter 200ms;
+}
+
+.SocialContainer img:hover {
+  filter : contrast(110%);
+}
+
 .Project {
   width: 100%;
 }
