@@ -1,0 +1,43 @@
+.Blogs {
+    height: 100%;
+    width: 100%;
+}
+
+.Heading{
+    background: #102331;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    margin-top : 20px;
+}
+
+.Heading h1 {
+    font-size : 30px;
+    margin-left: 20px;
+}
+
+.Heading img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 5px solid  #102331
+}
+
+.Box {
+    background: #102331;
+    border-radius: 4px;
+    padding : 10px 40px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.Box h1 {
+    font-size: 30px;
+}

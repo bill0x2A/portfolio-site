@@ -1,10 +1,9 @@
 .ImageContainer {
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 1;
     position: relative;
     align-items: center;
     text-align: center;
-    padding-top: 70px;
+    width: 50%;
+    height: 100%;
 }
 
 .ImageContainer img {
@@ -43,7 +42,7 @@
 
     position: absolute;
     left: calc(50% - 175px);
-    bottom: 14%;
+    bottom: -355px;
     box-shadow: -1px 8px 0px #c23e38;
 
     transition: all 500ms;
@@ -51,7 +50,7 @@
 }
 
 .PlinthHover {
-    bottom: 12%;
+    bottom: -365px;
     box-shadow: -1px 4px 0px #c23e38;
 }
 

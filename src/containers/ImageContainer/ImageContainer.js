@@ -32,16 +32,17 @@ class imageContainer extends Component {
             onMouseLeave = {this.hoverOffHandler}
             className={classes.ImageContainer}
             >
-            <img src={Plinth}></img>
-            
-            <div className={blockone}></div>
-            <div className={blocktwo}></div>
+            <div>
+                <img src={Plinth}></img>
+                <div className={blockone}></div>
+                <div className={blocktwo}></div>
+                <div className={plinth}/>
+            </div>
             <div className={classes.Hi}>
                 <h1>HI,</h1>
                 <h1>I'M BILLY</h1>
             </div>
 
-            <div className={plinth}/>
         </div>
     )}
 }

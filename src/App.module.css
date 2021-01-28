@@ -2,120 +2,35 @@
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 300px 1fr 1fr 300px;
-  grid-template-rows: 500px 1fr;
+  grid-template-columns: 300px 1fr 300px;
+  grid-template-rows:  70px 1fr;
+}
+
+.Centered {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.Content {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  min-height: calc(100vh - 70px);
 }
 
 @media only screen and (max-width : 1377px){
   .App {
-    grid-template-columns: 100px 1fr 1fr 100px;
+    grid-template-columns: 100px 1fr 100px;
   }
 }
 
 @media only screen and (max-width : 950px){
   .App {
-    grid-template-columns: 10px 1fr 1fr 10px;
+    grid-template-columns: 10px 1fr 10px;
   }
 }
 
 @media only screen and (max-width : 786px){
   .App {
-    grid-template-columns: 0px 1fr 1fr 0px;
-    grid-template-rows: 400px 1fr;
+    grid-template-columns: 0px 1fr 0px;
   }
-}
-
-.SocialContainer {
-  display: flex;
-  padding: 20px 10px;
-}
-
-.SocialContainer img {
-  height: 50px;
-  border-radius: 4px;
-  margin-right: 10px;
-  cursor: pointer;
-  transition: filter 200ms;
-}
-
-.SocialContainer img:hover {
-  filter : contrast(110%);
-}
-
-.Project {
-  width: 100%;
-}
-
-.Project h3 {
-  padding : 5px 10px;
-  width: -moz-fit-content;
-  width: fit-content;
-  border : 4px solid white;
-  
-}
-
-.Project .Main {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-}
-
-.TextContainer {
-  margin-left : 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.TextContainer p {
-  font-style: italic;
-}
-
-.Main p {
-  margin-top: 0;
-}
-
-.Project a {
-  max-width: 900px;
-  width: 70%;
-  border-radius: 5px;
-  transition: filter 300ms;
-}
-
-.Project li {
-  font-size : 18px;
-}
-
-.Project img {
-  width: 100%;
-}
-
-.Technologies {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: space-around;
-  padding : 5px 10px;
-  background: rgba(0,0,0,0.6);
-  border-bottom-left-radius: 5px;
-}
-
-.Technologies img{
-  all : initial;
-  max-height: 45px;
-  margin-right : 20px;
-}
-
-@media only screen and (max-width : 786px){
-  .Technologies img{
-    max-height: 28px;
-    margin-right : 12px;
-  }  
-}
-
-.Project img:hover {
-  filter : contrast(110%);
-  cursor: pointer;
 }
