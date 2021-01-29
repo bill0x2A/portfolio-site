@@ -30,7 +30,7 @@
     border: 5px solid  #102331
 }
 
-.Box {
+.Box{
     background: #102331;
     border-radius: 4px;
     padding : 10px 40px;
@@ -38,6 +38,6 @@
     margin-bottom: 10px;
 }
 
-.Box h1 {
-    font-size: 30px;
+.Box p {
+    font-size: 18px;
 }

@@ -33,9 +33,9 @@
 }
 
 .Bloglink {
-    border : 3px solid #fe615a;
+    border : 3px solid var(--salmon);
     background-color: rgba(0,0,0,0.1);
-    color: #fe615a;
+    color: var(--salmon);
 }
 
 @media only screen and (max-width : 786px){

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './App.module.css';
 import Helmet from 'react-helmet';
-import { withRouter, Route } from 'react-router-dom';
+import { withRouter, Route, Switch } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Blogs from './Components/Blogs/Blogs';
 import CV from './Components/CV/CV';
@@ -16,9 +16,11 @@ function App(props) {
         <div className={classes.Centered}>
           <Navigation/>
           <div className={classes.Content}>
-            <Route exact path = '/' component = {Home}/>
-            <Route path = '/blog' component = {Blogs} />
-            <Route path = '/CV' component = {CV} />
+            <Switch>
+              <Route exact path = '/' component = {Home}/>
+              <Route path = '/blog' component = {Blogs} />
+              <Route path = '/CV' component = {CV} />
+            </Switch>
           </div>
         </div>
 

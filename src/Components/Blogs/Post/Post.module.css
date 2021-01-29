@@ -1,0 +1,38 @@
+.Post {
+    background: var(--blue);
+    border-radius: 4px;
+    padding : 10px 40px;
+    color: white;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-bottom : 80px;
+    overflow: hidden;
+    transition: all 100ms;
+}
+
+.Post:hover {
+    filter : contrast(105%)
+}
+
+.Post p {
+    margin: 0;
+    font-size: 18px;
+}
+.Post a {
+    position: absolute;
+    bottom : 5px;
+    right : 5px;
+    background : var(--salmon);
+    padding: 5px 12px;
+    border-radius: 4px;
+    transition: all 200ms;
+    text-decoration: none;
+    color: white;
+}
+.Post a:hover {
+    cursor: pointer;
+    filter: contrast(120%)
+}

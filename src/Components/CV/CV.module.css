@@ -23,3 +23,19 @@ td {
     padding : 4px 8px;
     font-size : 18px;
 }
+
+.JobHeadline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.JobHeadline strong {
+    border-left: 4px solid white;
+    padding: 0 5px;
+}
+
+.CV span {
+    color: var(--salmon);
+    cursor: pointer;
+}
