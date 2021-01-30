@@ -29,7 +29,7 @@ const CV = props => {
                 </table>
                 <h3>Relevant Work Experience &amp; Projects</h3>
                 <div className={classes.JobHeadline}>
-                    <p><strong>Freelance Web Development</strong></p><p>Sept 2019 - Present</p>
+                    <p><strong>Freelance Web Development</strong></p><p>March 2019 - Present</p>
                 </div>
                 <p>I worked with clients to realise their needs, created mockup designs in Photoshop before building whole websites front to back using CSS, HTML, JS and Node. I acted on feedback quickly to work towards a solution that the client felt was their own.</p>
                 <p>I saved clients 80% of hosting fees using efficient cloud computing methods (AWS EC2).</p>
