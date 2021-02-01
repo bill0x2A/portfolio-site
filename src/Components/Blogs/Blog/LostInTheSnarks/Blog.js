@@ -29,16 +29,16 @@ const Blog = () => (
             <p>Maybe you can see why this would be central in proving knowledge without revealing your secrets.</p>
             <h4>Hiding Construction</h4>
             <p>Holomorphic hidings must be constructed from <strong>finite groups</strong>.</p>
-            <p><MathJax.Node inline formula={'mod x'}/> can be used on the set <MathJax.Node inline formula={'\\{0,...,n-1\\}'}/> to define an addition operation denoted:</p>
-            <MathJax.Node formula={'2 + 3 = 1 (mod 4)'}/>
+            <p><MathJax.Node inline formula={'mod \\ x'}/> can be used on the set <MathJax.Node inline formula={'\\{0,...,n-1\\}'}/> to define an addition operation denoted:</p>
+            <MathJax.Node formula={'2 + 3 = 1 (mod \\ 4)'}/>
             <p>We define <MathJax.Node inline formula={'\\mathbb{Z}_{n}'}/> as the set <MathJax.Node inline formula={'\\{0,...,n-1\\}'}/> including this addition operation.
             For a prime <MathJax.Node inline formula={'n'}/>, denoted <MathJax.Node inline formula={'p'}/> we may also simillarly define multiplication, keeping the result within <MathJax.Node inline formula={'\\{0,...,p-1\\}'}/>:</p>
-            <MathJax.Node formula={'2 \\cdot 4 = 1 (mod 7)'}/>
+            <MathJax.Node formula={'2 \\cdot 4 = 1 (mod \\ 7)'}/>
             <p>This set, with multiplication included as defined is denoted <MathJax.Node inline formula={'\\mathbb{Z}_{p}^{*}'}/> and has the following properties:</p>
             <ol>
                 <li>It is a <strong>cyclic group </strong> - there is some element <MathJax.Node inline formula={'g'}/> within <MathJax.Node inline formula={'\\mathbb{Z}_{p}^{*}'}/> called the <strong>generator</strong> usch that all elements of <MathJax.Node inline formula={'\\mathbb{Z}_{p}^{*}'}/> can be expressed as <MathJax.Node inline formula={'g^{a}'}/> for <MathJax.Node inline formula={'a \\in \\mathbb{Z}_{p}^{*}'}/>.</li>
-                <li>The discrete logarithm problem is hard in <MathJax.Node inline formula={'\\mathbb{Z}_{p}^{*}'}/> - when <MathJax.Node inline formula={'p'}/> is large, given <MathJax.Node inline formula={'h \\in \\mathbb{Z}_{p}^{*}'}/> it is hard to find an integer <MathJax.Node inline formula={'a \\in \\{0,...,p-2\\}'}/> such that <MathJax.Node inline formula={'g^{a} = h (mod p)'}/>.</li>
-                <li>As "exponents add when elements are multiplied" for <MathJax.Node inline formula={'a, b \\in \\{0,...,p-1\\}'}/> <MathJax.Node formula = {'g^{a}\\cdot g^{b} = g^{a + b (mod p-1)}'}/></li>
+                <li>The discrete logarithm problem is hard in <MathJax.Node inline formula={'\\mathbb{Z}_{p}^{*}'}/> - when <MathJax.Node inline formula={'p'}/> is large, given <MathJax.Node inline formula={'h \\in \\mathbb{Z}_{p}^{*}'}/> it is hard to find an integer <MathJax.Node inline formula={'a \\in \\{0,...,p-2\\}'}/> such that <MathJax.Node inline formula={'g^{a} = h (mod \\ p)'}/>.</li>
+                <li>As "exponents add when elements are multiplied" for <MathJax.Node inline formula={'a, b \\in \\{0,...,p-1\\}'}/> <MathJax.Node formula = {'g^{a}\\cdot g^{b} = g^{a + b (mod \\ p-1)}'}/></li>
             </ol>
             <p>This maps to our earlier definition of a holomorphic hiding function:</p>
             <MathJax.Node formula={'E(x) \\nrightarrow x'}/>
@@ -87,7 +87,7 @@ const Blog = () => (
             <p>Given the coefficients of <MathJax.Node inline formula={'P, P(s)'}/> is a linear combination of <MathJax.Node inline formula={'g, s \\cdot g, ... , s^{d} \\cdot g'}/> and <MathJax.Node inline formula={'\\alpha \\cdot P(s)'}/> is a linear combination of <MathJax.Node inline formula={'\\alpha \\cdot g, \\alpha \\cdot s \\cdot g,...,\\alpha \\cdot s^{d} \\cdot g'}/>, so as in the previous blind evaluation example, they can be computed by Alice.</p>
             <p>By the d-KCA, if Alice constructs <MathJax.Node inline formula={'a'}/>, <MathJax.Node inline formula={'b'}/> succesfully, she almost surely knows <MathJax.Node inline formula={'c_{0},...,c_{d} \\in \\mathbb{F}_{p}'}/> such that:</p>
             <MathJax.Node formula={'a = \\sum^{d}_{i=0} c_{i} \\cdot s^{i} \\cdot g'}/>
-            <p>In that case, <MathJax.Node inline formula={'a = P(s) \\cdot g'}/>for the polynomial <MathJax.Node inline formula={'P(X) = \\sum^{d}_{i=0} c_{i} \\cdot x^{i}'}/> which Alice knows.</p>
+            <p>In that case, <MathJax.Node inline formula={'a = P(s) \\cdot g'}/> for the polynomial <MathJax.Node inline formula={'P(X) = \\sum^{d}_{i=0} c_{i} \\cdot x^{i}'}/> which Alice knows.</p>
             <p>i.e. The probability Bob accepts with Alice not knowing <MathJax.Node inline formula={'P(X)'}/> is negligible. We may therefore say we have achieved our goal set out at the end of the blind polynomial evaluation section. We have the abiliy to calculate the result of a secret function using secret parameters and both parties can be satisfied everything was conducted above board. There is one caveat, the secret function must be a polynomial. Say we wanted to perform this action with a more complex system - say a sha3 hash function, or even a set of rules governing some DAO. We need a way to express complex functions as polynomials (or sets thereof).</p>
             <p>For this we will need an initially confusing but ultimatly brilliant and elegant technique...</p>
             <p style = {{textAlign : "center"}}>To be continued...</p>
