@@ -10,6 +10,7 @@ body, html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(to right, #fe615a, #fe615a 50%, #eef3dc 50%);
+  min-width: 330px;
 }
 
 

@@ -22,11 +22,11 @@ h2 {
 
 @media only screen and (max-width : 786px){
     h1 {
-        font-size: 60px;
+        font-size: 50px;
     }
 
     h2 {
-        font-size: 30px;
+        font-size: 25px;
     }
 
     .HeaderText h1 {
