@@ -129,6 +129,33 @@ const Blog = () => (
             <p>For a polynomial <MathJax.Node inline formula={'P'}/> and a point <MathJax.Node inline formula={'a \\in \\mathbb{F}_{p}'}/> we have <MathJax.Node inline formula={'P(a) = 0'}/> <strong>only</strong> if the polynomial <MathJax.Node inline formula={'X-a'}/> <strong>divides</strong> <MathJax.Node inline formula={'P'}/>, meaning:</p>
             <p><MathJax.Node inline formula={'P = (X-a) \\cdot H'}/> for some polynomial <MathJax.Node inline formula={'H'}/>.</p>
             <p>We define our <strong>target polynomial</strong> <MathJax.Node inline formula={'T:=(X-1)(2-X)'}/>, we can state that <MathJax.Node inline formula={'T'}/> divides <MathJax.Node inline formula={'P'}/> <strong>only</strong> if <MathJax.Node inline formula={'C_{1}...C_{5}'}/> is a legal assignment.</p>
+            <p>We now have all of our basic ingredients for a SNARK, now we need to mix them up and add some decoration. There are many ways of doing this but here we give a full run through of one of the first SNARKs.</p>
+            <h3>The Pinocchio Protocol</h3>
+            <p>If Alice has a satisfying assignment, there exists a polynomial <MathJax.Node inline formula={'H'}/>, such that <MathJax.Node inline formula={'P(s) = T(s) \\cdot H(s), s \\in \\mathbb{F}_{p} '}/>.</p>
+            <p>Suppose Alice does <strong>not</strong> have a satisfying assignment but still constructs <MathJax.Node inline formula={'P'}/>, we are guarenteed that <MathJax.Node inline formula={'T'}/> does not divide <MathJax.Node inline formula={'P'}/>.</p>
+            <p>Thus, for any polynomial <MathJax.Node inline formula={'H'}/> of maximum degree <MathJax.Node inline formula={'d-2'}/>, <MathJax.Node inline formula={'P'}/> and <MathJax.Node inline formula={'L,R,O,H'}/> will be different polynomials.</p>
+            <p>The <a href="https://rjlipton.wordpress.com/2009/11/30/the-curious-history-of-the-schwartz-zippel-lemma/">Schwatz-Zippel Lemma</a> states that differing polynomials of maximum degree <MathJax.Node inline formula={'2d'}/> agree on, at most <MathJax.Node inline formula={'2d'}/> points <MathJax.Node inline formula={'s \\in \\mathbb{F}_{p}'}/>. Thus when <MathJax.Node inline formula={'P >> 2d'}/>, the probability that <MathJax.Node inline formula={'P(s) = T(s) \\cdot H(s)'}/> for a random <MathJax.Node inline formula={'s'}/> is very small.</p>
+            <p>We therefore suggest the following for Alice to prove the assignment:</p>
+            <ol>
+                <li>Alice chooses polynomials <MathJax.Node inline formula={'L, R, O, H'}/> of maximum degree <MathJax.Node inline formula={'d'}/>.</li>
+                <li>Bob chooses a random point <MathJax.Node inline formula={'s \\in \\mathbb{F}_{p}'}/> and computes <MathJax.Node inline formula={'E(T(s))'}/> (loosely equivalent to <MathJax.Node inline formula={'X-a'}/><MathJax.Node inline formula={'\\alpha'}/> in the KCA, covered earlier).</li>
+                <li>Alice sends Bob the hidings of her polynomials, evaluated at <MathJax.Node inline formula={'s'}/>:<MathJax.Node inline formula={'[E(L(s)), E(R(s)), E(O(s))], E(H(s))'}/> (b and a in the KCA).</li>
+                <li>Bob checks if the desired equation holds at <MathJax.Node inline formula={'s'}/>: <MathJax.Node inline formula={'E(L(s) \\cdot R(s) - O(s)) ='}/><MathJax.Node inline formula={'E(T(s) \\cdot H(s))'}/>.</li>
+            </ol>
+            <h4>Enforcing consistent assignment usage</h4>
+            <p>If Alice lacks a satisfying assignment, she could still construct <MathJax.Node inline formula={'L, R, O, H'}/> such that <MathJax.Node inline formula={'L \\cdot R - O = T \\cdot H'}/>, she just can't generate <MathJax.Node inline formula={'L, R'}/> and <MathJax.Node inline formula={'O'}/> from the <strong>same</strong> <MathJax.Node inline formula={'(C_{1}...C_{m})'}/>. The above protocol only checks that <MathJax.Node inline formula={'L, R, O'}/> are of the right degree, so we combine them:</p>
+            <p><MathJax.Node inline formula={'F = L + X^{d+1} \\cdot R + X^{2(d+1)} \\cdot O'}/></p>
+            <p>The point of the <MathJax.Node inline formula={'X'}/> terms here is to ensure the coefficients of the sub polynomials do not mix in <MathJax.Node inline formula={'F'}/>.</p>
+            <p>We define simillar polynomials <MathJax.Node inline formula={'F'}/> for each <MathJax.Node inline formula={'i \\in \\{1,...,m\\}'}/> in the QAP:</p>
+            <p><MathJax.Node inline formula={'F_{i} = L_{i} + X^{d+1} \\cdot R_{i} + X^{2(d+1)} \\cdot O_{i}'}/></p>
+            <p>Note when we sum <MathJax.Node inline formula={'F'}/>s, the coefficients also 'sum separately':</p>
+            <p><MathJax.Node inline formula={'F_{1} + F_{2} ='}/><MathJax.Node inline formula={'(L_{1} + L_{2}) + X^{d+1} \\cdot (R_{1} + R_{2})'}/><MathJax.Node inline formula={'+ X^{2(d+1)} \\cdot (O_{1} + O_{2})'}/></p>
+            <p>More generally, suppose <MathJax.Node inline formula={'F'}/> was a linear combination of the <MathJax.Node inline formula={'F_{i}'}/>s:</p>
+            <p style={{textAlign:"center"}}><MathJax.Node inline formula={'\\sum_{i=1}^{m} C_{i} \\cdot F_{i}'}/> for the same coefficients <MathJax.Node inline formula={'(C_{1}...C{m})'}/>.</p>
+            <p>This would guarentee <MathJax.Node inline formula={'L, R, O'}/> were created from a single assignment.</p>
+            <p>Bob will therefore ask Alice to prove <MathJax.Node inline formula={'F'}/> is such a linear combination as such. Bob chooses a random <MathJax.Node inline formula={'\\beta \\in \\mathbb{F}_{p}^{*}'}/> and sends Alice the hidings:</p>
+            <p><MathJax.Node inline formula={'E(\\beta \\cdot F_{1}(s))'}/>...<MathJax.Node inline formula={'E(\\beta \\cdot F_{m}(s))'}/></p>
+            <p>If Alice can succeed in returning the element <MathJax.Node inline formula={'E(\\beta \\cdot F(s))'}/>, she proves <MathJax.Node inline formula={'F'}/> is a linear combination of <MathJax.Node inline formula={'F_{i}'}/>s, proving her assignment is consistent across <MathJax.Node inline formula={'L, R, O'}/> (d-KCA).</p>
         </div>
     </MathJax.Provider>
 )

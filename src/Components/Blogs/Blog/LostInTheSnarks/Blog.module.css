@@ -64,6 +64,10 @@
         flex-direction: column;
         text-align: center;
     }
+
+    .ImageContainer img {
+        width :280px;
+    }
 }
 
 @media only screen and (max-width : 600px){
