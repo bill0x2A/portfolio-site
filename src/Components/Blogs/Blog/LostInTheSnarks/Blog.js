@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Blog.module.css';
 import MathJax from 'react-mathjax';
+import arithmeticcircuit from '../../../../Assets/arithmeticcircuit.png';
 
 const tex = `f(x) = \\int_{-\\infty}^\\infty
     \\hat f(\\xi)\\,e^{2 \\pi i \\xi x}
@@ -68,7 +69,7 @@ const Blog = () => (
             </ol>
             <p>The only information Alice has about <MathJax.Node inline formula={'a'}/> is <MathJax.Node inline formula={'\\alpha \\cdot a'}/> and <MathJax.Node inline formula={'G'}/> has a discrete hard logarithm problem, so Alice cannot simply find <MathJax.Node inline formula={'\\alpha = b \\div a'}/>. So then how does she generate <MathJax.Node inline formula={'\\dot a, \\dot b'}/>?</p>
             <p>Alice chooses <MathJax.Node inline formula={'\\gamma \\in \\mathbb{F}^{*}_{p}'}/>, and responds with <MathJax.Node inline formula={'\\dot a, \\dot b = \\gamma \\cdot a, \\gamma \\cdot b'}/>:</p>
-            <p style = {{textAlign:"center"}}><MathJax.Node formula={'\\dot b = \\gamma \\cdot b = \\gamma \\cdot \\alpha \\cdot a'}/> <MathJax.Node inline formula={'\\alpha(\\gamma \\cdot a) = \\alpha \\cdot \\dot a'}/></p>
+            <p style = {{textAlign:"center"}}><MathJax.Node inline formula={'\\dot b = \\gamma \\cdot b = \\gamma \\cdot \\alpha \\cdot a'}/> <MathJax.Node inline formula={'\\alpha(\\gamma \\cdot a) = \\alpha \\cdot \\dot a'}/></p>
             <p>Thus <MathJax.Node inline formula={'\\dot a, \\dot b'}/> is an <MathJax.Node inline formula={'\\alpha'}/>-pair. Alice knows the ratio between <MathJax.Node inline formula={'\\dot a'}/> and <MathJax.Node inline formula={'a'}/>, <MathJax.Node inline formula={'(\\gamma)'}/>, and this can be proven with non-negligible probability over several choices of <MathJax.Node inline formula={'\\alpha'}/> and <MathJax.Node inline formula={'a'}/> by Bob. Note this procedure is not completely watertight, so just doing it once is not enough. It should be done many times, giving rise to...</p>
             <h4>Extended Knowledge of Coefficient Assumption (d-KCA)</h4>
             <p>Here Bob chooses <MathJax.Node inline formula={'\\alpha \\in \\mathbb{F}^{*}_{p}, s \\in \\mathbb{F}_{p}'}/> and sends Alice the <MathJax.Node inline formula={'\\alpha'}/>-pairs : </p>
@@ -90,7 +91,44 @@ const Blog = () => (
             <p>In that case, <MathJax.Node inline formula={'a = P(s) \\cdot g'}/> for the polynomial <MathJax.Node inline formula={'P(X) = \\sum^{d}_{i=0} c_{i} \\cdot x^{i}'}/> which Alice knows.</p>
             <p>i.e. The probability Bob accepts with Alice not knowing <MathJax.Node inline formula={'P(X)'}/> is negligible. We may therefore say we have achieved our goal set out at the end of the blind polynomial evaluation section. We have the abiliy to calculate the result of a secret function using secret parameters and both parties can be satisfied everything was conducted above board. There is one caveat, the secret function must be a polynomial. Say we wanted to perform this action with a more complex system - say a sha3 hash function, or even a set of rules governing some DAO. We need a way to express complex functions as polynomials (or sets thereof).</p>
             <p>For this we will need an initially confusing but ultimatly brilliant and elegant technique...</p>
-            <p style = {{textAlign : "center"}}>To be continued...</p>
+            <h3>Quadratic Arithmetic Programs</h3>
+            <p>This method allows us to represent programs as sets of polynomials. Lets start with a visual represention of the basis of this method.</p>
+            <h4>Arithmetic Circuits</h4>
+            <div className={classes.ImageContainer}>
+                <img src = {arithmeticcircuit}/>
+            </div>
+            <p>The key to understanding this is by paying close attention to the labels on the above diagram.</p>
+            <ul>
+                <li><MathJax.Node inline formula={'w_{1}'}/> is an outgoing wire going into <strong>more than one gate</strong>, yet it is only labelled <strong>once</strong>.</li>
+                <li>Multiplication gates have <strong>only</strong> two inputs called <strong>left</strong> and <strong>right</strong>.</li>
+                <li>We do not label the addition gate, or the wire leading it to the multiplication gate <MathJax.Node inline formula={'g_{2}'}/>. <MathJax.Node inline formula={'w_{1}'}/> and <MathJax.Node inline formula={'w_{2}'}/> are both the right input of <MathJax.Node inline formula={'g_{2}'}/>.</li>
+            </ul>
+            <p>A <strong>legal assignment</strong> for the circuit if of the form <MathJax.Node inline formula={'(C_{1}, ..., C_{5})'}/> where <MathJax.Node inline formula={'C_{4} = C_{1} \\cdot C_{2}'}/> and <MathJax.Node inline formula={'C_{5} = C_{4} \\cdot (C_{1} + C{3})'}/> in the case of the above circuit.</p>
+            <p>Say alice is trying to prove that she knows <MathJax.Node inline formula={'(C_{1}, C_{2}, C_{3}) \\in \\mathbb{F}_{p}'}/> such that <MathJax.Node inline formula={'(C_{1} \\cdot C_{2}) \\cdot (C_{1} + C_{3}) = 7'}/>. </p>
+            <p>In the terminology of arithmetic circuits, Alice wants to prove she knows a legal assignment <MathJax.Node inline formula={'(C_{1}, ..., C_{5})'}/> such that <MathJax.Node inline formula={'C_{5} = 7'}/>. We now have to translate this to a statement about polynomials using a Quadratic Arithmetic Program.</p>
+            <h4>Quadratic Arithmetic Programs</h4>
+            <p><MathJax.Node inline formula={'g_{1}'}/> and <MathJax.Node inline formula={'g_{2}'}/> are associated with field elements:</p>
+            <p style={{textAlign:"center"}}><MathJax.Node inline formula={'1 \\in \\mathbb{F}_{p}'}/> and <MathJax.Node inline formula={'2 \\in \\mathbb{F}_{p}'}/>, respectively.</p>
+            <p>We now call <MathJax.Node inline formula={'\\{1,2\\}'}/> our <strong>target points</strong> and define 3 sets of polynomicals : left, right and output:</p>
+            <p style={{textAlign:"center"}}><MathJax.Node inline formula={'L_{1}...L_{5}'}/>, <MathJax.Node inline formula={'R_{1}...R_{5}'}/>, <MathJax.Node inline formula={'O_{1}...O_{5}'}/></p>
+            <p>The goal of this is to have the evaluated polynomials usually be 0 on the target points, <strong>except</strong> the ones involved in the target points multiplication gate. In our case, <MathJax.Node inline formula={'w_{1}, w{2}, w_{4}'}/> are the left, right and output wires of <MathJax.Node inline formula={'g_{1}'}/>, respectively.</p>
+            <p>Hence we define: <MathJax.Node inline formula={'L_{1} = R_{2} = O_{4} = 2 - X'}/>, choosing 2 - X becasue it gives 1 at the point <MathJax.Node inline formula={'g_{1}'}/> and 0 at <MathJax.Node inline formula={'g_{2}'}/>.</p>
+            <p>In a simillar way: <MathJax.Node inline formula={'L_{4} = R_{1} = R_{3} = O_{5} = X - 1'}/>, because X - 1 gives 1 at <MathJax.Node inline formula={'g_{2}'}/> and 0 at <MathJax.Node inline formula={'g_{1}'}/>.</p>
+            <p>Make sure you understand the connection between these equations and the arithmetic circuit diagram, a bit of staring at them helps. The remainder of the polynomials are set as 0 (or the zero polynomial).</p>
+            <p>Taking the fixed values from our legal assignment <MathJax.Node inline formula={'(C_{1}...C{5})'}/>, we can define left, right and output 'sum' polynomials : </p>
+            <p className = {classes.SpaceSplit}><MathJax.Node inline formula={'L:=\\sum_{i=1}^{5} C_{i} \\cdot L_{i}'}/> <MathJax.Node inline formula={'R:=\\sum_{i=1}^{5} C_{i} \\cdot R_{i}'}/> <MathJax.Node inline formula={'O:=\\sum_{i=1}^{5} C_{i} \\cdot O_{i}'}/></p>
+            <p>We then use these to define : <MathJax.Node inline formula={'P:=L \\cdot R - O'}/>.</p>
+            <p>Here's the key : <MathJax.Node inline formula={'C_{1}...C{5}'}/> is a legal assignment to the circuit <strong>only</strong> if P vanishes on all the target points:</p>
+            <p><MathJax.Node inline formula={'L(1) = C_{1} \\cdot L_{1}(1) + 0 + 0 + 0 + 0= C_{1}'}/></p>
+            <p><MathJax.Node inline formula={'R(1) = 0 + C_{2} \\cdot R_{2}(1) + 0 + 0 + 0 = C_{2}'}/></p>
+            <p><MathJax.Node inline formula={'O(1) = 0 + 0 + 0 + C_{4} \\cdot O_{4}(1) + 0 = C_{4}'}/></p>
+            <p>Hence, <MathJax.Node inline formula={'P(1) = (C_{1} \\cdot C_{2}) - C_{4} = 0'}/></p>
+            <p>Simillarly, <MathJax.Node inline formula={'P(2) = C_{4} \\cdot (C_{1} \\cdot C_{3}) - C_{5} = 0'}/></p>
+            <p>Cool, right? Including the zeros made it make much more sense to me initally so I have included them here.</p>
+            <h4>Target Polynomials</h4>
+            <p>For a polynomial <MathJax.Node inline formula={'P'}/> and a point <MathJax.Node inline formula={'a \\in \\mathbb{F}_{p}'}/> we have <MathJax.Node inline formula={'P(a) = 0'}/> <strong>only</strong> if the polynomial <MathJax.Node inline formula={'X-a'}/> <strong>divides</strong> <MathJax.Node inline formula={'P'}/>, meaning:</p>
+            <p><MathJax.Node inline formula={'P = (X-a) \\cdot H'}/> for some polynomial <MathJax.Node inline formula={'H'}/>.</p>
+            <p>We define our <strong>target polynomial</strong> <MathJax.Node inline formula={'T:=(X-1)(2-X)'}/>, we can state that <MathJax.Node inline formula={'T'}/> divides <MathJax.Node inline formula={'P'}/> <strong>only</strong> if <MathJax.Node inline formula={'C_{1}...C_{5}'}/> is a legal assignment.</p>
         </div>
     </MathJax.Provider>
 )
