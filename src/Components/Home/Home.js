@@ -21,6 +21,7 @@ import LINKEDIN from '../../Assets/linkedin.png';
 import biographicalcounselling from '../../Assets/biographicalcounselling.png';
 import billfinex from '../../Assets/billfinex.png';
 import bugtracker from '../../Assets/bugtracker.png';
+import freefund from '../../Assets/freefund.png';
 
 const Home = () => {
     return (
@@ -53,6 +54,20 @@ const Home = () => {
                 <p>I approached Jane about her website in May 2020. I worked with her over several months to create a design she loved.</p>
                 <p>I substantially developed my confidence and knowledge in <strong>CSS</strong> over the course of this project, and the end product is now live, representing her counselling service.</p>
                 <p>I also took the opportunity to learn how to run a containerized backend on <strong>AWS (EC2)</strong> to host the site for Jane, saving her <strong>£100 / year </strong>in hosting costs compared to her previous solution.</p>
+              </div>
+              <div className={classes.Project} onClick = {() => window.open("https://www.freefund.io/")}>
+                <h3>Freefund</h3>
+                <div className={classes.Main}>
+                  <div className={classes.Technologies}>
+                    <img src ={HTML}/>
+                    <img src ={CSS}/>
+                    <img src ={JAVASCRIPT}/>
+                    <img src ={REACT}/>
+                  </div>
+                  <img src = {freefund}/>
+                </div>
+                <p>I entered the EthDenver 2021 Hackathon, and made it into the final with Freefund - a cryptocurrency based crowdfunding dapp. After coming 7th overall and gaining a runner up prize from a venture capital firm, we decided to make the project a reality.</p>
+                <p>I gained significant experience with <strong>React</strong> and the <strong>Ethers.js</strong> library over the course of this project, as well as collaborative app design and programming.</p>
               </div>
               <div className={classes.Project} onClick = {() => window.open("https://main.d1og6uu514ow0q.amplifyapp.com/")}>
                 <h3>Billfinex React App</h3>
