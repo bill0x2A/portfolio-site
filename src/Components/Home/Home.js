@@ -23,9 +23,11 @@ import billfinex from '../../Assets/billfinex.png';
 import bugtracker from '../../Assets/bugtracker.png';
 import freefund from '../../Assets/freefund.png';
 
+import FadeIn from 'react-fade-in';
+
 const Home = () => {
     return (
-      <React.Fragment>
+      <FadeIn delay ={100}>
         <div className = {classes.Heading}>
           <ImageContainer/>
           <HeaderText/>
@@ -109,7 +111,7 @@ const Home = () => {
             </div>
           </TextContainer>
         </Main>
-      </React.Fragment>
+      </FadeIn>
     )
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './ImageContainers.module.css';
-import Plinth from '../../Assets/justme.png';
+import profile from '../../Assets/headshot.jpg';
 
 class imageContainer extends Component {
 
@@ -33,7 +33,7 @@ class imageContainer extends Component {
             className={classes.ImageContainer}
             >
             <div>
-                <img src={Plinth}></img>
+                <img className={classes.me} src={profile}/>
                 <div className={blockone}></div>
                 <div className={blocktwo}></div>
                 <div className={plinth}/>

@@ -7,11 +7,18 @@
 }
 
 .ImageContainer img {
-    height: 350px;
+    height: 250px;
     width: auto;
     z-index: 100;
+    border-radius: 1000px;
     position: absolute;
-    left: calc(50% - 126px);
+    left: calc(50% - 125px);
+    top : 50px;
+    transition: all 400ms;
+}
+
+.ImageContainer img:hover {
+    top : 50px;
 }
 
 .WhiteBlock {
@@ -35,6 +42,7 @@
 }
 
 .Plinth {
+    display: none;
     width: 350px;
     height: 80px;
     border-radius: 100%;

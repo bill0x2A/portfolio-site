@@ -11,7 +11,7 @@
 .Navbar a {
     text-decoration: none;
     margin: 0 15px;
-    border-radius: 4px;
+    border-radius: 100px;
     padding: 4px 12px;
     font-weight: 600;
     
@@ -19,23 +19,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background-color 0.4s;
+    transition: all 0.2s;
 }
 
-.Navbar a:hover {
-    background-color: rgba(255,255,255,0.2);
-}
 
 .Homelink {
     border : 3px solid white;
     color: white;
-    background-color: rgba(255,255,255,0.1);
+}
+
+.Homelink:hover {
+    background: white;
+    color : var(--salmon)
 }
 
 .Bloglink {
     border : 3px solid var(--salmon);
-    background-color: rgba(0,0,0,0.1);
     color: var(--salmon);
+}
+
+.Bloglink:hover {
+    background: var(--salmon);
+    color : white;
 }
 
 @media only screen and (max-width : 786px){

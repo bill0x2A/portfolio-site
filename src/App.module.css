@@ -34,3 +34,9 @@
     grid-template-columns: 0px 1fr 0px;
   }
 }
+
+@media only screen and (min-width : 1920px) {
+  .App {
+    grid-template-columns: 1fr 1400px 1fr;
+  }
+}
