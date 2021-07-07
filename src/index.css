@@ -19,6 +19,25 @@ body, html {
   --blue : #102331;
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #eef3dc;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fe615a;
+  border-radius: 20px;
+  border: 3px solid #eef3dc;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
