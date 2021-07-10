@@ -14,7 +14,7 @@ const CV = props => {
             </div>
             <div className={classes.Body}>
                 <h3>Personal Profile</h3>
-                <p>I am a driven and independent developer, with a passion for continuous learning. <br/> I took lockdown as an opportunity to learn HTML, CSS and Javascript, finding my first client for freelance work in May 2020.<br/><br/> Wanting to built more complex apps I began learning React in July 2020 and have since furthered my skills, winning prizes at the ColoradoJam hackathon and taking on the lead developer role for a small startup.</p>
+                <p>I am a driven and independent developer, with a passion for continuous learning. <br/> I took lockdown as an opportunity to learn HTML, CSS and Javascript, finding my first client for freelance work in May 2020.<br/><br/> Wanting to build more complex apps, I began learning React in July 2020 and have since furthered my skills, winning prizes at the ColoradoJam hackathon and taking on the lead developer role for a small startup.</p>
                 <h3>Core Skills</h3>
                 <table className={classes.CoreSkills}>
                     <tr><td><strong>Languages</strong></td><td>HTML/JSX, CSS, Javascript, Python, Solidity</td></tr>
